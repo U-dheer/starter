@@ -1,0 +1,42 @@
+# .gitignore for Natours Node project
+# Copy this file to your repo root. It ignores local dependencies, secrets and editor files.
+
+# Node dependencies
+node_modules/
+
+# Env files (keep secrets out of git)
+config.env
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build / output
+dist/
+build/
+coverage/
+
+# Runtime files
+pids/
+*.pid
+*.seed
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Misc
+.sass-cache
+.cache/
+.nyc_output/
+
+# If you generate a lockfile locally you may want to keep it, so it's NOT ignored by default.
