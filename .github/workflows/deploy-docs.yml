@@ -6,6 +6,7 @@ on:
       - main # or master
     paths:
       - 'natours/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
