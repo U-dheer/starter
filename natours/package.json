@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "homepage": "https://u-dheer.github.io/starter/",
+  "homepage": "https://starter.u-dheer.me/",
   "scripts": {
     "dev": "npm run gen-openapi && zudoku dev --port 5174",
     "build": "npm run gen-openapi && zudoku build",
