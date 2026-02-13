@@ -1,0 +1,38 @@
+name: Deploy Natours Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # or master
+    paths:
+      - 'natours/**'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: natours/package-lock.json
+
+      - name: Install and Build
+        run: |
+          cd natours
+          npm install
+          npm run build
+
+      - name: Deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./natours/dist # or the specific build output folder of zudoku
+          publish_branch: gh-pages
