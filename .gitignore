@@ -40,3 +40,4 @@ pids/
 .nyc_output/
 
 # If you generate a lockfile locally you may want to keep it, so it's NOT ignored by default.
+.vercel
