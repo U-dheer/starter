@@ -24,7 +24,7 @@ jobs:
       - name: Install and Build
         run: |
           cd natours
-          npm ci  # or npm install
+          npm install
           npm run build
 
   deploy:
