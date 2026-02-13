@@ -1,0 +1,28 @@
+---
+title: Authentication
+---
+
+The Natours API uses JSON Web Tokens (JWT) for authentication.
+
+## Protecting Routes
+
+Certain routes are protected and require a valid token to be included in the request headers.
+
+### Authorization Header
+
+To authenticate your requests, include the token in the `Authorization` header as a Bearer token:
+
+```http
+Authorization: Bearer <your-token-here>
+```
+
+## How to obtain a token
+
+1. **Sign Up**: Create a new account via `POST /api/v1/users/signup`.
+2. **Login**: Authenticate with your email and password via `POST /api/v1/users/login`.
+
+Upon successful login or signup, the API will return a JWT in the response body (and often as a cookie).
+
+## Roles and Permissions
+
+Some endpoints are restricted to specific user roles (e.g., `admin`, `lead-guide`). Ensure your user account has the necessary permissions to access these routes.

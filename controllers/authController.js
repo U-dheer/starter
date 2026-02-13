@@ -16,7 +16,7 @@ const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
   const cookieOptions = {
     expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ), // convert to miliseconds
     httpOnly: true,
   };
@@ -44,6 +44,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
     role: req.body.role,
   });
+
+  console.log('New user added:', newUser);
 
   createSendToken(newUser, 201, res);
 });
@@ -81,7 +83,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   console.log(token);
   if (!token) {
     return next(
-      new AppError('You are not logged in ! please log in to get access', 401)
+      new AppError('You are not logged in ! please log in to get access', 401),
     );
   }
 
@@ -93,8 +95,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     return next(
       new AppError(
         'The User belonging to this token does no longer exists',
-        401
-      )
+        401,
+      ),
     );
   }
 
@@ -102,7 +104,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   const hasThePasswordChanged = currentUser.changedPasswordAfter(decoded.iat);
   if (hasThePasswordChanged) {
     return next(
-      new AppError('User recently changed password ! please log in again', 401)
+      new AppError('User recently changed password ! please log in again', 401),
     );
   }
 
@@ -120,8 +122,8 @@ exports.restrictTo = (...roles) => {
       return next(
         new AppError(
           'You do not have the permission to perform this action.',
-          403
-        )
+          403,
+        ),
       );
     }
 
@@ -143,7 +145,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // 3) Send it to user's email
   const resetURL = `${req.protocol}://${req.get(
-    'host'
+    'host',
   )}/api/v1/users/resetPassword/${resetToken}`; //not the encripted token just the origial one
 
   const message = `Forgot your password? Submit a PATCH request with your new password and passwordCconfirm to: ${resetURL}.\nIf you didn't forget your password,please ignore this email ! `;
@@ -167,8 +169,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     return next(
       new AppError(
         'There was an error sending the email, Try again later ! ',
-        500
-      )
+        500,
+      ),
     );
   }
 });

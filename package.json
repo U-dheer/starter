@@ -26,6 +26,7 @@
     "natours": "file:",
     "nodemailer": "^7.0.10",
     "pug": "^3.0.3",
+    "serverless-http": "^4.0.0",
     "slugify": "^1.6.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
