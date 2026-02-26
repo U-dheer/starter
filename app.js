@@ -13,6 +13,15 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const app = express();
 
+// Enable CORS
+app.use(
+  cors({
+    origin: ['https://starter.udheer.me', 'http://localhost:5174'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true,
+  }),
+);
+
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -50,15 +59,6 @@ const viewRouter = require('./routes/viewRoutes');
 
 //  1) GLOBAL MIDDLEWARES
 //middlewere for the post method
-
-// Enable CORS
-app.use(
-  cors({
-    origin: ['https://starter.udheer.me', 'http://localhost:5174'],
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    credentials: true,
-  }),
-);
 
 // set Security HTTP heders
 app.use(helmet());

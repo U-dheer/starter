@@ -7,16 +7,14 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "https://natours-rho-self.vercel.app"
     }
   ],
   "paths": {
     "/api/v1/reviews": {
       "get": {
         "summary": "Get all reviews",
-        "tags": [
-          "Reviews"
-        ],
+        "tags": ["Reviews"],
         "security": [
           {
             "bearerAuth": []
@@ -30,9 +28,7 @@
       },
       "post": {
         "summary": "Create a new review",
-        "tags": [
-          "Reviews"
-        ],
+        "tags": ["Reviews"],
         "security": [
           {
             "bearerAuth": []
@@ -58,9 +54,7 @@
     "/api/v1/reviews/{id}": {
       "get": {
         "summary": "Get review by ID",
-        "tags": [
-          "Reviews"
-        ],
+        "tags": ["Reviews"],
         "security": [
           {
             "bearerAuth": []
@@ -84,9 +78,7 @@
       },
       "patch": {
         "summary": "Update review",
-        "tags": [
-          "Reviews"
-        ],
+        "tags": ["Reviews"],
         "security": [
           {
             "bearerAuth": []
@@ -119,9 +111,7 @@
       },
       "delete": {
         "summary": "Delete review",
-        "tags": [
-          "Reviews"
-        ],
+        "tags": ["Reviews"],
         "security": [
           {
             "bearerAuth": []
@@ -147,9 +137,7 @@
     "/api/v1/tours/top-5-cheap": {
       "get": {
         "summary": "Get top 5 cheap tours",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "responses": {
           "200": {
             "description": "Successfully retrieved top 5 cheap tours"
@@ -160,9 +148,7 @@
     "/api/v1/tours/tour-stats": {
       "get": {
         "summary": "Get tour statistics",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "responses": {
           "200": {
             "description": "Successfully retrieved tour statistics"
@@ -173,9 +159,7 @@
     "/api/v1/tours/monthly-plan/{year}": {
       "get": {
         "summary": "Get monthly plan for a given year",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "parameters": [
           {
             "in": "path",
@@ -196,9 +180,7 @@
     "/api/v1/tours/tours-within/{distance}/center/{lating}/unit/{unit}": {
       "get": {
         "summary": "Get tours within a certain distance from a location",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "parameters": [
           {
             "in": "path",
@@ -222,10 +204,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "mi",
-                "km"
-              ]
+              "enum": ["mi", "km"]
             }
           }
         ],
@@ -239,9 +218,7 @@
     "/api/v1/tours/distances/{lating}/unit/{unit}": {
       "get": {
         "summary": "Get distances of tours from a location",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "parameters": [
           {
             "in": "path",
@@ -257,10 +234,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "mi",
-                "km"
-              ]
+              "enum": ["mi", "km"]
             }
           }
         ],
@@ -274,9 +248,7 @@
     "/api/v1/tours": {
       "get": {
         "summary": "Get all tours",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "responses": {
           "200": {
             "description": "Successfully retrieved all tours"
@@ -285,9 +257,7 @@
       },
       "post": {
         "summary": "Create a new tour",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "security": [
           {
             "bearerAuth": []
@@ -313,9 +283,7 @@
     "/api/v1/tours/{id}": {
       "get": {
         "summary": "Get a specific tour by ID",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "parameters": [
           {
             "in": "path",
@@ -334,9 +302,7 @@
       },
       "patch": {
         "summary": "Update a tour",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "security": [
           {
             "bearerAuth": []
@@ -369,9 +335,7 @@
       },
       "delete": {
         "summary": "Delete a tour",
-        "tags": [
-          "Tours"
-        ],
+        "tags": ["Tours"],
         "security": [
           {
             "bearerAuth": []
@@ -397,9 +361,7 @@
     "/api/v1/users/signup": {
       "post": {
         "summary": "Register a new user",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -420,19 +382,14 @@
     "/api/v1/users/login": {
       "post": {
         "summary": "User login",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "email",
-                  "password"
-                ],
+                "required": ["email", "password"],
                 "properties": {
                   "email": {
                     "type": "string"
@@ -456,18 +413,14 @@
     "/api/v1/users/forgotPassword": {
       "post": {
         "summary": "Send password reset token to email",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "email"
-                ],
+                "required": ["email"],
                 "properties": {
                   "email": {
                     "type": "string"
@@ -487,9 +440,7 @@
     "/api/v1/users/resetPassword/{token}": {
       "patch": {
         "summary": "Reset password with token",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "parameters": [
           {
             "in": "path",
@@ -506,10 +457,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "password",
-                  "passwordConfirm"
-                ],
+                "required": ["password", "passwordConfirm"],
                 "properties": {
                   "password": {
                     "type": "string",
@@ -534,9 +482,7 @@
     "/api/v1/users/updateMyPassword": {
       "patch": {
         "summary": "Update current user password",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -548,11 +494,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "passwordCurrent",
-                  "password",
-                  "passwordConfirm"
-                ],
+                "required": ["passwordCurrent", "password", "passwordConfirm"],
                 "properties": {
                   "passwordCurrent": {
                     "type": "string",
@@ -581,9 +523,7 @@
     "/api/v1/users/updateMe": {
       "patch": {
         "summary": "Update current user data",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -616,9 +556,7 @@
     "/api/v1/users/deleteMe": {
       "delete": {
         "summary": "Deactivate current user",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -634,9 +572,7 @@
     "/api/v1/users/me": {
       "get": {
         "summary": "Get current user info",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -652,9 +588,7 @@
     "/api/v1/users": {
       "get": {
         "summary": "Get all users (Admin only)",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -668,9 +602,7 @@
       },
       "post": {
         "summary": "Create a user (Admin only)",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -696,9 +628,7 @@
     "/api/v1/users/{id}": {
       "get": {
         "summary": "Get user by ID (Admin only)",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -722,9 +652,7 @@
       },
       "patch": {
         "summary": "Update user (Admin only)",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -757,9 +685,7 @@
       },
       "delete": {
         "summary": "Delete user (Admin only)",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "security": [
           {
             "bearerAuth": []
@@ -787,12 +713,7 @@
     "schemas": {
       "Review": {
         "type": "object",
-        "required": [
-          "review",
-          "rating",
-          "tour",
-          "user"
-        ],
+        "required": ["review", "rating", "tour", "user"],
         "properties": {
           "review": {
             "type": "string"
@@ -836,11 +757,7 @@
           },
           "difficulty": {
             "type": "string",
-            "enum": [
-              "easy",
-              "medium",
-              "difficult"
-            ]
+            "enum": ["easy", "medium", "difficult"]
           },
           "ratingsAverage": {
             "type": "number"
@@ -877,12 +794,7 @@
       },
       "User": {
         "type": "object",
-        "required": [
-          "name",
-          "email",
-          "password",
-          "passwordConfirm"
-        ],
+        "required": ["name", "email", "password", "passwordConfirm"],
         "properties": {
           "name": {
             "type": "string"
@@ -892,12 +804,7 @@
           },
           "role": {
             "type": "string",
-            "enum": [
-              "user",
-              "guide",
-              "lead-guide",
-              "admin"
-            ]
+            "enum": ["user", "guide", "lead-guide", "admin"]
           },
           "password": {
             "type": "string",
