@@ -12,13 +12,7 @@ import { redirectPlugin } from "zudoku/plugins/redirect";
 import { Sparkles, Link } from "zudoku/icons";
 const configuredApiPlugins = [];
 const configuredApiCatalogPlugins = [];
-configuredApiPlugins.push(openApiPlugin({
-  type: "file",
-  input: { "1.0.0": function _4e40d044cfb227e5692ee51ea8d9209a75e7da80() {
-    return import("./assets/openapi.json-Jc2xg0RW.js");
-  } },
-  navigationId: "undefined"
-}));
+configuredApiPlugins.push(openApiPlugin({ "type": "url", "input": "https://natours-rho-self.vercel.app/api-json", "navigationId": "api", "inMemory": true }));
 const configuredAuthProvider = void 0;
 const docsPluginOptions = [];
 const fileImports0 = Object.assign({
@@ -38,7 +32,7 @@ const redirects = [
   }
 ];
 const configuredRedirectPlugin = redirectPlugin({ redirects });
-const configuredSidebar = { "docs": [{ "type": "category", "label": "Documentation", "items": [{ "type": "category", "label": "Getting Started", "icon": Sparkles, "items": [{ "type": "doc", "id": "/introduction", "label": "Welcome to Natours API", "categoryLabel": "Getting Started" }, { "type": "doc", "id": "/authentication", "label": "Authentication", "categoryLabel": "Getting Started" }] }, { "type": "link", "href": "/api", "label": "API Reference" }, { "type": "category", "label": "Useful Links", "collapsible": false, "icon": Link, "items": [{ "type": "link", "label": "Live Swagger UI", "href": "https://natours-rho-self.vercel.app/api-docs" }, { "type": "link", "label": "Zudoku Docs", "href": "https://zudoku.dev/docs/" }] }] }] };
+const configuredSidebar = { "docs": [{ "type": "category", "label": "Documentation", "items": [{ "type": "category", "label": "Getting Started", "icon": Sparkles, "items": [{ "type": "doc", "id": "/introduction", "label": "Welcome to Natours API", "categoryLabel": "Getting Started" }, { "type": "doc", "id": "/authentication", "label": "Authentication", "categoryLabel": "Getting Started" }] }, { "type": "category", "label": "Useful Links", "collapsible": false, "icon": Link, "items": [{ "type": "link", "label": "Zudoku Docs", "href": "https://zudoku.dev/docs/" }] }] }] };
 const isNavigationPlugin = (obj) => "getRoutes" in obj && typeof obj.getRoutes === "function";
 const convertZudokuConfigToOptions = (config) => {
   var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
