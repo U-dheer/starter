@@ -26,7 +26,6 @@ jobs:
           cd natours
           npm install
           npm run build
-          cp dist/index.html dist/404.html
 
       - name: Upload dist
         uses: actions/upload-artifact@v4
