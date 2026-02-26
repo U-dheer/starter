@@ -1,7 +1,7 @@
 import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
-  basePath: "/",
+  basePath: "/starter",
   page: {
     pageTitle: "Natours API",
     logo: {

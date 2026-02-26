@@ -27,6 +27,9 @@ jobs:
           npm install
           npm run build
 
+      - name: Create 404.html for SPA routing
+        run: cp natours/dist/index.html natours/dist/404.html
+
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
