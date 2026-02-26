@@ -17,7 +17,8 @@ const app = express();
 app.use(
   cors({
     origin: ['https://starter.udheer.me', 'http://localhost:5174'],
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   }),
 );
@@ -61,7 +62,12 @@ const viewRouter = require('./routes/viewRoutes');
 //middlewere for the post method
 
 // set Security HTTP heders
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    crossOriginOpenerPolicy: false,
+  }),
+);
 
 //Body parser ,reading data from body to req.body
 app.use(express.json({ limit: '10kb' }));
