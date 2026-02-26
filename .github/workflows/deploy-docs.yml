@@ -52,4 +52,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./natours/dist
           publish_branch: gh-pages
-          cname: natours.u-dheer.me
+          cname: starter.udheer.me
