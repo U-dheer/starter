@@ -5,11 +5,15 @@ const config: ZudokuConfig = {
   page: {
     pageTitle: "Natours API",
     logo: {
-      src: { light: "/logo-light.svg", dark: "/logo-dark.svg" },
+      src: { light: "/starter/logo-light.svg", dark: "/starter/logo-dark.svg" },
       alt: "Natours",
       width: "130px",
     },
   },
+  topNavigation: [
+    { id: "docs", label: "Documentation" },
+    { id: "api", label: "API Reference" },
+  ],
   sidebar: {
     docs: [
       {
@@ -23,21 +27,11 @@ const config: ZudokuConfig = {
             items: ["/introduction", "/authentication"],
           },
           {
-            type: "link",
-            href: "/api",
-            label: "API Reference",
-          },
-          {
             type: "category",
             label: "Useful Links",
             collapsible: false,
             icon: "link",
             items: [
-              {
-                type: "link",
-                label: "Live Swagger UI",
-                href: "https://natours-rho-self.vercel.app/api-docs",
-              },
               {
                 type: "link",
                 label: "Zudoku Docs",
@@ -50,12 +44,11 @@ const config: ZudokuConfig = {
     ],
   },
   redirects: [{ from: "/", to: "/introduction" }],
-  apis: [
-    {
-      type: "file",
-      input: "./apis/openapi.json",
-    },
-  ],
+  apis: {
+    type: "url",
+    input: "https://natours-rho-self.vercel.app/api-json",
+    navigationId: "api",
+  },
 };
 
 export default config;

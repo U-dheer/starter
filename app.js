@@ -31,6 +31,10 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get('/api-json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views')); // api data ena thana hoayagnna amru welawt meka use krnw,methndi wenne path module eken adala directory eka join krnw api awsane deka views kiyna  ekat
